@@ -324,7 +324,7 @@ function Courses() {
                   </div>
 
                   <button
-                    className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2 hover:bg-slate-700 duration-300"
+                   className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
                     onClick={handleNextStep}
                     type="button"
                     disabled={isValid}
@@ -390,7 +390,7 @@ function Courses() {
 
                   <div className="px-6 space-x-3 flex justify-around">
                     <button
-                      className="bg-blue-500 hover:bg-blue-600 text-white  rounded-xl flex items-center px-5 py-2 hover:bg-slate-700 duration-300"
+                      className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
                       onClick={handleBackStep}
                     >
                       <FaLongArrowAltLeft />
@@ -399,7 +399,7 @@ function Courses() {
 
                     <button
                       type="submit"
-                      className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2 hover:bg-slate-700 duration-300"
+                      className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
                     >
                       submit
                     </button>
