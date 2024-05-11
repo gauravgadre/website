@@ -9,6 +9,7 @@ import testing from "../../public/testing.png";
 import BA from "../../public/BA.jpeg";
 import softskill from "../../public/softskill.jpeg";
 import internship from "../../public/internship.jpeg";
+import Spinner from "./Spinner";
 
 import { IoCloseSharp } from "react-icons/io5";
 import { FaLongArrowAltLeft } from "react-icons/fa";
@@ -18,6 +19,16 @@ import axios from "axios";
 
 function Courses() {
   const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+  const [isLoading, setIsLoading] = useState(false);
+  const [isValid, setIsValid] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formErrors, setFormErrors] = useState({
+    name: false,
+    contactNo: false,
+    email: false,
+    course: false,
+    address: false,
+  });
   const [enrollmentData, setEnrollmentData] = useState({
     name: "",
     contactNo: "",
@@ -77,14 +88,6 @@ function Courses() {
       name: "Internship Certificate",
     },
   ];
-  const [formErrors, setFormErrors] = useState({
-    name: false,
-    contactNo: false,
-    email: false,
-    course: false,
-    address: false,
-  });
-  const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
     const {
@@ -131,8 +134,6 @@ function Courses() {
       }));
     }
   };
-
-  const [currentStep, setCurrentStep] = useState(1);
   const handleNextStep = () => {
     setCurrentStep((prevStep) => prevStep + 1);
   };
@@ -171,31 +172,23 @@ function Courses() {
     formData.append("photo", enrollmentData.photo);
     formData.append("kyc", enrollmentData.kyc);
     formData.append("certificates", enrollmentData.certificates);
-    // Assuming formData is your FormData object
-    console.log("name:", formData.get("name"));
-    console.log("email:", formData.get("email"));
-    console.log("contactNo:", formData.get("contactNo"));
-    console.log("course:", formData.get("course"));
-    console.log("address:", formData.get("address"));
-    console.log("photo:", formData.get("photo"));
-    console.log("kyc:", formData.get("kyc"));
-    console.log("certificates:", formData.get("certificates"));
-
+    setIsLoading(true);
     try {
-      const response = await axios.post("http://your-api-url", formData);
-
-      if (response.status === 200) {
-        // Handle successful API response
-        toast.success("Your course enrollment done successfully!");
-        console.log("Data submitted successfully!");
+      const response = await axios.post(
+        "https://e45a-45-118-105-195.ngrok-free.app/submitformdata",
+        formData
+      );
+      // Handle successful API response
+      if (response.status == 200) {
+        handleModalClose();
+        toast.success("Course enrolled successfully!");
       } else {
-        // Handle API error
-        console.error("Failed to submit data to the API.");
-        toast.error("Something went wrong");
+        toast.error("Something went wrong!.Please try again");
       }
     } catch (error) {
-      console.error("Error submitting data:", error);
-      toast.error("Something went wrong");
+      toast.error("Something went wrong!.Please try again");
+    } finally {
+      setIsLoading(false); // Clear loading state
     }
   };
 
@@ -258,9 +251,15 @@ function Courses() {
               <div className="flex justify-between items-center px-15 py-4">
                 <h1 className="text-black px-2 py-2">Enrollment form</h1>
                 <button className="px-2 py-2" onClick={handleModalClose}>
-                  <IoCloseSharp size={24} />
+                  <IoCloseSharp size={30} />
                 </button>
               </div>
+              {isLoading && (
+                <div className="fixed inset-0 bg-blue-100 bg-opacity-80 flex items-center justify-center z-50">
+                  {/* Add your loader component here */}
+                  <Spinner />
+                </div>
+              )}
 
               {currentStep === 1 && (
                 <>
@@ -324,7 +323,7 @@ function Courses() {
                   </div>
 
                   <button
-                   className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
+                    className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
                     onClick={handleNextStep}
                     type="button"
                     disabled={isValid}
@@ -411,7 +410,7 @@ function Courses() {
         )}
       </div>
       <hr />
-    </>
+    </> 
   );
 }
 
