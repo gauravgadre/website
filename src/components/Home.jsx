@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
-import pic from "../../public/photo.avif";
+import pic from "../../public/skillspark.jpeg";
 
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 import { FaTelegram } from "react-icons/fa6";
-
 
 import { ReactTyped } from "react-typed";
 
@@ -26,11 +25,22 @@ function Home() {
               {/* <span >Developer</span> */}
               <ReactTyped
                 className="text-red-700 font-bold"
-                strings={["HR course", "Recruiter course", "Java course","Web Developement course","Testing course","Incident Manager course","Bussiness Analyst course","Soft Skills course"]}
+                strings={[
+                  "HR course",
+                  "Recruiter course",
+                  "Java course",
+                  "Web Developement course",
+                  "Testing course",
+                  "Incident Manager course",
+                  "Bussiness Analyst course",
+                  "Soft Skills course",
+                  "Master of Social Work"
+                ]}
                 typeSpeed={40}
                 backSpeed={50}
                 loop={true}
-              />  here
+              />{" "}
+              here
             </div>
             <br />
             <p className="text-sm md:text-md text-justify">
@@ -70,10 +80,10 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="md:w-1/2 md:ml-48 md:mt-20 mt-8 order-1">
+          <div className="md:w-1/2 md:ml-48 md:mt-15 mt-8 order-1">
             <img
               src={pic}
-              className="rounded-full md:w-[450px] md:h-[450px]"
+              className="rounded-full md:w-[400px] md:h-[400px] mx-auto block"
               alt=""
             />
           </div>

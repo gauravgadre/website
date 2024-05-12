@@ -9,6 +9,7 @@ import testing from "../../public/testing.png";
 import BA from "../../public/BA.jpeg";
 import softskill from "../../public/softskill.jpeg";
 import internship from "../../public/internship.jpeg";
+import msw from "../../public/msw.png";
 import Spinner from "./Spinner";
 
 import { IoCloseSharp } from "react-icons/io5";
@@ -87,6 +88,11 @@ function Courses() {
       logo: internship,
       name: "Internship Certificate",
     },
+    {
+      id: 10,
+      logo: msw,
+      name: "MSW (Master of Social Work)",
+    },
   ];
 
   useEffect(() => {
@@ -141,9 +147,14 @@ function Courses() {
   const handleBackStep = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
-  const handleEnrollClick = () => {
+
+  const handleEnrollClick = (courseName) => {
     setIsModalOpen(true);
     setCurrentStep(1);
+    setEnrollmentData((prevData) => ({
+      ...prevData,
+      course: courseName,
+    }));
   };
 
   const handleModalClose = () => {
@@ -221,7 +232,7 @@ function Courses() {
                 <div className="px-6 py-4 space-x-3 flex justify-around">
                   <button
                     className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
-                    onClick={handleEnrollClick} // Open modal on button click
+                    onClick={() => handleEnrollClick(name)}// Open modal on button click
                   >
                     enroll now
                   </button>
@@ -319,6 +330,7 @@ function Courses() {
                       placeholder="Enter your course"
                       value={enrollmentData.course}
                       onChange={handleInputChange}
+                      readOnly
                     />
                   </div>
 
@@ -410,7 +422,7 @@ function Courses() {
         )}
       </div>
       <hr />
-    </> 
+    </>
   );
 }
 
