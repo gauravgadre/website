@@ -8,7 +8,7 @@ function Home() {
         name="Contact"
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-28"
       >
-        <h1 className="text-3xl font-bold mb-5">Contact</h1>
+        <h1 className="text-3xl font-semibold mb-4 pt-5">Contact</h1>
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 mt-12 md:mt-24 space-y-2 order-1">
             <span className="text-xl">Contact person</span>

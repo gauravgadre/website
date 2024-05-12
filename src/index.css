@@ -6,3 +6,27 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+/* Css for slider reviews */
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #3F51B5 !important;
+}
+  
+.slick-prev:before, .slick-next:before
+{
+  color:#3F51B5;
+}
+.slick-prev:after, .slick-next:after
+{
+  color:#3F51B5;
+}
+
+@media (max-width: 768px) {
+  .slick-prev ,.slick-next{
+    display: none !important; /* Hide the previous and next button for less than medium screen*/
+  }
+}

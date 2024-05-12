@@ -4,7 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
-function Contact() {
+function Feedback() {
   const {
     register,
     handleSubmit,
@@ -29,11 +29,11 @@ function Contact() {
   return (
     <>
       <div
-        name="Registrastion"
+        name="Feedback"
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-16"
       >
-        <h1 className="text-3xl font-bold mb-4">Registrastion Form</h1>
-        <span>Please fill out the form for registrastion</span>
+        <h1 className="text-3xl font-bold mb-4">Feedback Form</h1>
+        <span>Please fill out the form for feedback</span>
         <div className=" flex flex-col items-center justify-center mt-5">
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -87,9 +87,8 @@ function Contact() {
           </form>
         </div>
       </div>
-      <hr />
     </>
   );
 }
 
-export default Contact;
+export default Feedback;

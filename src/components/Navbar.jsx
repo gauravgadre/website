@@ -21,15 +21,11 @@ function Navbar() {
     },
     {
       id: 4,
-      text: "Registrastion",
+      text: "Feedback",
     },
     {
       id: 5,
       text: "Contact",
-    },
-    {
-      id: 6,
-      text: "Feedback",
     },
   ];
   return (

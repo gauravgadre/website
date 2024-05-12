@@ -210,7 +210,7 @@ function Courses() {
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 mt-10"
       >
         <div>
-          <h1 className="text-3xl font-bold mb-5">Courses</h1>
+        <h1 className="text-3xl font-semibold mb-4 pt-5">Courses</h1>
           <span className=" underline font-semibold">Trainings available</span>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 my-5">
             {cardItem.map(({ id, logo, name }) => (

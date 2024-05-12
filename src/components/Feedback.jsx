@@ -1,94 +1,121 @@
 /* eslint-disable no-unused-vars */
-import axios from "axios";
-import React from "react";
-import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function Feedback() {
-  const {
-    register,
-    handleSubmit,
+  const [expandedReview, setExpandedReview] = useState(null);
 
-    formState: { errors },
-  } = useForm();
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3, // Show 3 cards at a time by default
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 768, // Less than Medium device (md) breakpoint
+        settings: {
+          dots: true,
+          slidesToShow: 1, // Show 1 card at a time below md devices
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
-  const onSubmit = async (data) => {
-    const userInfo = {
-      name: data.name,
-      email: data.email,
-      message: data.message,
-    };
-    try {
-      await axios.post("https://getform.io/f/eapdrrea", userInfo);
-      toast.success("Your message has been sent");
-    } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong");
+  const toggleExpandedReview = (index) => {
+    if (expandedReview === index) {
+      setExpandedReview(null);
+    } else {
+      setExpandedReview(index);
     }
   };
+
   return (
     <>
       <div
         name="Feedback"
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-16"
       >
-        <h1 className="text-3xl font-bold mb-4">Feedback Form</h1>
-        <span>Please fill out the form for feedback</span>
-        <div className=" flex flex-col items-center justify-center mt-5">
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            // action="https://getform.io/f/raeqjora"
-            // method="POST"
-            className="bg-slate-200 w-96 px-8 py-6 rounded-xl"
-          >
-            <h1 className="text-xl font-semibold mb-4">Send Your Message</h1>
-            <div className="flex flex-col mb-4">
-              <label className="block text-gray-700">FullName</label>
-              <input
-                {...register("name", { required: true })}
-                className="shadow rounded-lg appearance-none border  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Enter your fullname"
-              />
-              {errors.name && <span>This field is required</span>}
-            </div>
-            <div className="flex flex-col mb-4">
-              <label className="block text-gray-700">Email Address</label>
-              <input
-                {...register("email", { required: true })}
-                className="shadow rounded-lg appearance-none border  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="email"
-                name="email"
-                type="text"
-                placeholder="Enter your email address"
-              />
-              {errors.email && <span>This field is required</span>}
-            </div>
-            <div className="flex flex-col mb-4">
-              <label className="block text-gray-700">Message</label>
-              <textarea
-                {...register("message", { required: true })}
-                className="shadow rounded-lg appearance-none border  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="message"
-                name="message"
-                type="text"
-                placeholder="Enter your Query"
-              />
-              {errors.message && <span>This field is required</span>}
-            </div>
-            <button
-              type="submit"
-              className="bg-black text-white rounded-xl px-3 py-2 hover:bg-slate-700 duration-300"
-            >
-              Send
-            </button>
-          </form>
+        <h1 className="text-3xl font-semibold mb-4 pt-5">Feedback</h1>
+        <span>happy candidates feedbacks:</span>
+        <div className="w-11/12 md:w-3/4 mx-auto">
+          <div className="mt-10">
+            <Slider {...settings}>
+              {data.map((d, index) => (
+                <div
+                  key={d.name}
+                  className="feedback-card bg-white rounded-lg shadow-lg overflow-hidden p-4 h-60"
+                >
+                  <p className="text-xl text-center font-semibold">{d.name}</p>
+                  <div className="review-content h-full overflow-y-auto">
+                    {expandedReview === index ? (
+                      <p className="text-center my-2">{d.review}</p>
+                    ) : (
+                      <p className="text-center my-2">
+                        {d.review.slice(0, 100)}{" "}
+                        <button
+                          onClick={() => toggleExpandedReview(index)}
+                          className="text-indigo-500 underline"
+                        >
+                          Read More
+                        </button>
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
+      <br />
+      <br />
+      <hr />
     </>
   );
 }
+
+const data = [
+  {
+    id: 1,
+    name: `Priya Sharma`,
+    review: `I enrolled in the Java course, and it was an amazing learning experience! The content was comprehensive, and the instructors were very knowledgeable.`,
+  },
+  {
+    id: 2,
+    name: `Rajesh Patel`,
+    review: `The Web Development course exceeded my expectations. I learned a lot of practical skills that I could immediately apply to real-world projects. Highly recommended!`,
+  },
+  {
+    id: 3,
+    name: `Aarav Gupta`,
+    review: `As someone working in HR, I found the HR course extremely helpful. It provided valuable insights into talent management, employee relations, and HR strategies.`,
+  },
+  {
+    id: 4,
+    name: `Ananya Singh`,
+    review: `Being an Incident Manager, I needed a course that could enhance my skills in handling critical situations. The Incident Manager course did exactly that, and I feel more confident in my role now.`,
+  },
+  {
+    id: 5,
+    name: `Aditya Khanna`,
+    review: `The Testing course was comprehensive and well-structured. It covered all the essential aspects of software testing, and I feel ready to take on testing projects in my job.`,
+  },
+  {
+    id: 6,
+    name: `Ishaan Sharma`,
+    review: `I enrolled in the Recruitment course to improve my hiring skills, and it was a great decision. The course materials were practical, and I learned valuable techniques for attracting top talent.`,
+  },
+  {
+    id: 7,
+    name: `Neha Gupta`,
+    review: `I recently completed the HR course, and I must say it was fantastic! The instructors were engaging, and the course content was very relevant to modern HR practices.`,
+  },
+];
 
 export default Feedback;

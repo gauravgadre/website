@@ -19,11 +19,11 @@ function Footer() {
               <FaInstagram size={24} />
               <FaLinkedinIn size={24} />
             </div>
-            <div className="mt-8 border-t border-gray-700 pt-8 flex flex-col items-center">
+            <div className="mt-8 border-t border-gray-700 pt-5 flex flex-col items-center">
               <p className="text-sm">
-                &copy; 2024 Online Learning. All rights reserved.
+                &copy; 2024 Skill Spark. All rights reserved.
               </p>
-              <p className="text-sm">Online Learning</p>
+              <p className="text-sm">Skill Spark</p>
             </div>
           </div>
         </div>

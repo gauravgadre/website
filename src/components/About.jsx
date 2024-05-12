@@ -9,7 +9,7 @@ function About() {
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20"
       >
         <div>
-          <h1 className="text-3xl font-bold mb-5">About</h1>
+        <h1 className="text-3xl font-semibold mb-4 pt-5">About</h1>
           <p>
             With a keen eye for MERN Stack . With a background in IT, I strive
             to create impactful and visually stunning Software solutions that
