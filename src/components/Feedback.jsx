@@ -84,7 +84,7 @@ function Feedback() {
       <div className="flex justify-between items-center mb-4 pt-5">
         <h1 className="text-3xl font-semibold">Feedback</h1>
         <button
-          className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl px-4 py-2"
+          className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl md:px-4 px-2 py-2"
           onClick={() => handleFeedbackClick()} // Open modal on button click
         >
           provide feedback
@@ -197,7 +197,7 @@ function Feedback() {
               <label htmlFor="rating" className="block text-gray-700">
                 Rating
               </label>
-              <div className="flex items-center shadow rounded-lg appearance-none border py-2 px-3 bg-white leading-tight focus:outline-none focus:shadow-outline">
+              <div className="flex items-center shadow rounded-lg appearance-none border py-2 px-2 bg-white leading-tight focus:outline-none focus:shadow-outline">
                 {[1, 2, 3, 4, 5].map((value) => (
                   <div
                     key={value}
@@ -208,13 +208,13 @@ function Feedback() {
                       <FaStar
                         key={value}
                         size={26}
-                        className="text-yellow-500"
+                        className="text-yellow-400"
                       />
                     ) : (
                       <FaRegStar
                         size={26}
                         key={value}
-                        className="text-yellow-500"
+                        className="text-yellow-400"
                       />
                     )}
                   </div>
@@ -222,15 +222,15 @@ function Feedback() {
               </div>
             </div>
             <div className="flex flex-col mb-4">
-              <label htmlFor="message" className="block text-gray-700">
+              <label htmlFor="feedback" className="block text-gray-700">
                 Feedback
               </label>
               <textarea
                 className="shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline max-h-40 min-h-20 h-10 resize-y"
-                id="message"
-                name="message"
+                id="feedback"
+                name="feedback"
                 type="text"
-                placeholder="Enter your Query"
+                placeholder="Enter your feedback"
               />
             </div>
             <button
@@ -292,7 +292,7 @@ const data = [
   {
     id: 7,
     name: `Neha Gupta`,
-    course: "HR",
+    course: "Master of Social Work (MSW)",
     rating: 3,
     review: `I recently completed the HR course, and I must say it was fantastic! The instructors were engaging, and the course content was very relevant to modern HR practices.`,
   },
