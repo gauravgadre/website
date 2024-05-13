@@ -235,9 +235,8 @@ function Feedback() {
             </div>
             <button
               type="submit"
-              className="bg-black text-white rounded-xl px-3 py-2 hover:bg-slate-700 duration-300"
-            >
-              Send
+              className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2" >
+              submit
             </button>
           </form>
         </div>
