@@ -13,7 +13,7 @@ body {
 }
 
 .slick-dots li.slick-active button:before {
-  color: #3F51B5 !important;
+  color: #1565C0 !important;
 }
   
 .slick-prev:before, .slick-next:before

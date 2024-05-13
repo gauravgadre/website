@@ -91,7 +91,7 @@ function Courses() {
     {
       id: 10,
       logo: msw,
-      name: "MSW (Master of Social Work)",
+      name: "Master of Social Work (MSW)",
     },
   ];
 
@@ -210,7 +210,7 @@ function Courses() {
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 mt-10"
       >
         <div>
-        <h1 className="text-3xl font-semibold mb-4 pt-5">Courses</h1>
+          <h1 className="text-3xl font-semibold mb-4 pt-5">Courses</h1>
           <span className=" underline font-semibold">Trainings available</span>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 my-5">
             {cardItem.map(({ id, logo, name }) => (
@@ -232,7 +232,7 @@ function Courses() {
                 <div className="px-6 py-4 space-x-3 flex justify-around">
                   <button
                     className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
-                    onClick={() => handleEnrollClick(name)}// Open modal on button click
+                    onClick={() => handleEnrollClick(name)} // Open modal on button click
                   >
                     enroll now
                   </button>
@@ -249,16 +249,6 @@ function Courses() {
               className="bg-slate-200 w-96 px-8 py-6 rounded-xl"
               onSubmit={handleSubmit}
             >
-              {/* <div className="px-6 py-4 space-x-3 flex justify-around">
-              <h1 className="text-black  px-2 py-2 ">Enrolment form</h1>
-              <button
-                className="px-2 py-2"
-                onClick={handleModalClose} // Open modal on button click
-              >
-                <IoCloseSharp size={24} />
-              </button>
-            </div> */}
-
               <div className="flex justify-between items-center px-15 py-4">
                 <h1 className="text-black px-2 py-2">Enrollment form</h1>
                 <button className="px-2 py-2" onClick={handleModalClose}>
@@ -267,7 +257,7 @@ function Courses() {
               </div>
               {isLoading && (
                 <div className="fixed inset-0 bg-blue-100 bg-opacity-80 flex items-center justify-center z-50">
-                  {/* Add your loader component here */}
+                  {/* Add your Spinner component here */}
                   <Spinner />
                 </div>
               )}

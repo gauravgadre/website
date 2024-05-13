@@ -16,7 +16,7 @@ function About() {
             leave a lasting impression.
           </p>
           <br />
-          <h1 className="text-green-600 font-semibold text-xl">
+          <h1 className=" font-semibold text-xl text-blue-800" >
             Education & Training
           </h1>
           <span>
@@ -26,7 +26,7 @@ function About() {
           </span>
           <br />
           <br />
-          <h1 className="text-green-600 font-semibold text-xl">
+          <h1 className=" font-semibold text-xl text-blue-800">
             Skills & Expertise
           </h1>
           <span>

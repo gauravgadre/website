@@ -20,27 +20,27 @@ function Home() {
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 mt-12 md:mt-24 space-y-2 order-2 md:order-1">
             <span className="text-xl">Welcome to learning</span>
-            <div className="flex space-x-1 text-2xl">
+            <div className="flex space-x-1 text-xl">
               <h1>You will learn</h1>
               {/* <span >Developer</span> */}
               <ReactTyped
-                className="text-red-700 font-bold"
+                className="text-blue-800"
                 strings={[
-                  "HR course",
-                  "Recruiter course",
-                  "Java course",
-                  "Web Developement course",
-                  "Testing course",
-                  "Incident Manager course",
-                  "Bussiness Analyst course",
-                  "Soft Skills course",
-                  "Master of Social Work"
+                  "HR course.",
+                  "Recruitment course.",
+                  "Java course.",
+                  "Web Developement course.",
+                  "Testing/Automation course.",
+                  "Incident Manager course.",
+                  "Bussiness Analyst course.",
+                  "Soft Skills course.",
+                  "Master of Social Work (MSW) course"
                 ]}
                 typeSpeed={40}
                 backSpeed={50}
                 loop={true}
               />{" "}
-              here
+              {/* here */}
             </div>
             <br />
             <p className="text-sm md:text-md text-justify">
@@ -54,26 +54,26 @@ function Home() {
             {/* social media icons */}
             <div className="flex flex-col items-center md:flex-row justify-between space-y-6 md:space-y-0">
               <div className="  space-y-2">
-                <h1 className="font-bold text-center ">Available on</h1>
+                <h1 className="font-bold md:text-center ">Available on</h1>
                 <ul className="flex space-x-5">
                   <li>
                     <a href="https://www.facebook.com/" target="_blank">
-                      <FaSquareFacebook className="text-2xl cursor-pointer" />
+                      <FaSquareFacebook className="text-2xl cursor-pointer" style={{color:'#3B5998'}}/>
                     </a>
                   </li>
                   <li>
                     <a href="https://www.linkedin.com/" target="_blank">
-                      <FaLinkedin className="text-2xl cursor-pointer" />
+                      <FaLinkedin className="text-2xl cursor-pointer" style={{color:'#0077b5'}}/>
                     </a>
                   </li>
                   <li>
                     <a href="https://www.youtube.com/" target="_blank">
-                      <IoLogoYoutube className="text-2xl cursor-pointer" />
+                      <IoLogoYoutube className="text-2xl cursor-pointer" style={{color:'#FF0000'}}  />
                     </a>
                   </li>
                   <li>
                     <a href="https://t.me/" target="_blank">
-                      <FaTelegram className="text-2xl cursor-pointer" />
+                      <FaTelegram className="text-2xl cursor-pointer" style={{color:'#0088cc'}}/>
                     </a>
                   </li>
                 </ul>

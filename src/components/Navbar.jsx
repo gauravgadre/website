@@ -35,7 +35,7 @@ function Navbar() {
           <div className=" flex space-x-2">
             <img src={pic} className="h-12 w-12 rounded-full" alt="" />
             <h1 className="font-semibold text-xl cursor-pointer">
-              <span className="text-green-500 text-2xl">Skill</span>
+            <span className="text-2xl text-blue-800" >Skill</span>
               <p className="text-sm">Spark</p>
             </h1>
           </div>
