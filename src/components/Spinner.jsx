@@ -6,8 +6,10 @@ const Spinner = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center">
-        <h1 className=" mb-4">please wait . . .</h1>
         <div className="spinner"></div>
+        <div className="text-center mt-4">
+          <p className="text-lg">Please wait . . .</p>
+        </div>
       </div>
     </>
   );

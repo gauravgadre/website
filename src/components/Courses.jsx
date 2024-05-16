@@ -11,11 +11,12 @@ import softskill from "../../public/softskill.jpeg";
 import internship from "../../public/internship.jpeg";
 import msw from "../../public/msw.png";
 import Spinner from "./Spinner";
+import ToastSuccess from "./ToastSuccess";
+import ToastError from "./ToastError";
 
 import { IoCloseSharp } from "react-icons/io5";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import toast from "react-hot-toast";
 import axios from "axios";
 
 function Courses() {
@@ -23,6 +24,8 @@ function Courses() {
   const [isLoading, setIsLoading] = useState(false);
   const [isValid, setIsValid] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
+  const [isToastSucess, setToastSucess] = useState(false);
+  const [isToastError, setToastError] = useState(false);
   const [formErrors, setFormErrors] = useState({
     name: false,
     contactNo: false,
@@ -182,22 +185,26 @@ function Courses() {
     // // Append files to FormData object
     formData.append("photo", enrollmentData.photo);
     formData.append("kyc", enrollmentData.kyc);
-    formData.append("certificates", enrollmentData.certificates);
+    formData.append("certificate", enrollmentData.certificates);
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "https://website-backend-r6r5.onrender.com/submitformdata",
+        "https://website-backend-r6r5.onrender.com/api/enrollcourse",
         formData
       );
       // Handle successful API response
       if (response.status == 200) {
         handleModalClose();
-        toast.success("Course enrolled successfully!");
+        setToastSucess(true); // Set the state to true to render the success toast
+
+        setTimeout(() => {
+          setToastSucess(false); // Reset toast success after 2 seconds
+        }, 2000);
       } else {
-        toast.error("Something went wrong!.Please try again");
+        setToastError(true);
       }
     } catch (error) {
-      toast.error("Something went wrong!.Please try again");
+      setToastError(true);
     } finally {
       setIsLoading(false); // Clear loading state
     }
@@ -256,7 +263,7 @@ function Courses() {
                 </button>
               </div>
               {isLoading && (
-                <div className="fixed inset-0 bg-blue-100 bg-opacity-80 flex items-center justify-center z-50">
+                <div className="fixed inset-0  bg-white bg-opacity-90 flex items-center justify-center z-50">
                   {/* Add your Spinner component here */}
                   <Spinner />
                 </div>
@@ -412,6 +419,23 @@ function Courses() {
         )}
       </div>
       <hr />
+
+      {isToastSucess && (
+        <div className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-500">
+          <ToastSuccess
+            message="Course enrolled successfully!"
+            onClose={() => setToastSucess(false)}
+          />
+        </div>
+      )}
+      {isToastError && (
+        <div className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-500">
+          <ToastError
+            message="Something went wrong ! Please try again"
+            onClose={() => setToastError(false)}
+          />
+        </div>
+      )}
     </>
   );
 }
