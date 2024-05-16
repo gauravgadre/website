@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect }  from "react";
 import PropTypes from "prop-types";
-import "./css/ToastSuccess.css"
 const ToastSuccess = ({ message,onClose }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -19,7 +18,7 @@ const ToastSuccess = ({ message,onClose }) => {
         <div className="flex items-center justify-center">
           <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
             <svg
-              className="w-6 h-6 text-white animate-checkmark"
+              className="w-6 h-6 text-white"
               fill="none"
               stroke="#fff"
               strokeWidth="2"

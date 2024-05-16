@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import "./css/ToastError.css"
-
 const ToastError = ({ message, onClose }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -20,7 +18,7 @@ const ToastError = ({ message, onClose }) => {
         <div className="flex items-center justify-center">
           <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
             <svg
-              className="w-6 h-6 text-white animate-cross"
+              className="w-6 h-6 text-white"
               fill="none"
               stroke="#fff"
               strokeWidth="2"
