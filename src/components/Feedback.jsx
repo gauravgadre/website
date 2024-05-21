@@ -70,10 +70,10 @@ function Feedback() {
     for (let i = 1; i <= 5; i++) {
       if (i <= rating) {
         // Render filled star icons
-        stars.push(<FaStar key={i} size={22} className="text-yellow-400" />);
+        stars.push(<FaStar key={i} size={22} className="text-yellow-600" />);
       } else {
         // Render empty star icons for remaining stars
-        stars.push(<FaRegStar key={i} size={22} className="text-yellow-400" />);
+        stars.push(<FaRegStar key={i} size={22} className="text-yellow-600" />);
       }
     }
 
@@ -159,9 +159,9 @@ function Feedback() {
     <>
       <div
         name="Feedback"
-        className="max-w-screen-2xl container mx-auto px-4 md:py-20 md:px-20 "
+        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-15 py-5"
       >
-        <span className="flex justify-between items-center">
+        <span className="flex justify-between items-center ">
           <h1 className=" text-3xl font-semibold text-black mb-4 ">
             Feedback
           </h1>
@@ -303,13 +303,13 @@ function Feedback() {
                         <FaStar
                           key={value}
                           size={26}
-                          className="text-yellow-400"
+                          className="text-yellow-600"
                         />
                       ) : (
                         <FaRegStar
                           size={26}
                           key={value}
-                          className="text-yellow-400"
+                          className="text-yellow-600"
                         />
                       )}
                     </div>
@@ -342,7 +342,7 @@ function Feedback() {
               <div className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50">
                 {/* Add your Spinner component here */}
                 <Spinner />
-              </div>
+              </div> 
             )}
           </div>
         )}
@@ -366,7 +366,6 @@ function Feedback() {
       )}
       <br />
       <br />
-      <hr></hr>
     </>
   );
 }

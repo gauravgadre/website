@@ -11,7 +11,7 @@ function Footer() {
   return (
     <>
       <hr />
-      <footer className="py-8 bg-blue-900 text-white text-center">
+      <footer className="py-3 bg-blue-900 text-white text-center">
         <div className="max-w-screen-2xl container mx-auto px-4 md:px-20">
           <div className=" flex flex-col items-center justify-center">
             {/* <div className="flex space-x-4">
@@ -65,7 +65,8 @@ function Footer() {
                 <img src={pic} className="h-20 w-20 rounded-full" alt="" />
               </div>
               <p className="text-sm mt-1">
-                &copy; 2024 CreativeTech Skills Institute. All rights reserved.
+               Copyright &copy; 2024 CreativeTech Skills Institute. 
+                <p>All rights reserved.</p>
               </p>
               {/* <p className="text-sm">CreativeTech Skills Institute</p> */}
             </div>

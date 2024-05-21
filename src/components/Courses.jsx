@@ -442,7 +442,6 @@ function Courses() {
       )}
       <br/>
       <br/>
-      <hr></hr>
     </>
   );
 }

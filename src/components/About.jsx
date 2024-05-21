@@ -9,7 +9,9 @@ function About() {
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20 bg-white text-gray-800"
       >
         <div>
-          <h1 className="pt-4 text-3xl font-semibold text-black mb-4 ">About</h1>
+          <h1 className="pt-4 text-3xl font-semibold text-black mb-4 ">
+            About
+          </h1>
           <p className="bg-blue-100 rounded shadow-md">
             At Creative Tech Skills Institute, we believe in the transformative
             power of education and innovation. Founded with a vision to bridge
@@ -29,7 +31,7 @@ function About() {
             challenges of the modern workforce with confidence and competence.
           </p>
           <br />
-          <br />
+
           <h1 className="font-semibold text-xl text-blue-900">
             Why Choose Us?
           </h1>
@@ -64,7 +66,7 @@ function About() {
             </li>
           </ul>
           <br />
-          <br />
+
           <h1 className=" font-semibold text-xl text-blue-900">
             Join Us Today
           </h1>
@@ -76,11 +78,8 @@ function About() {
             meet our dedicated team, and become part of a community committed to
             excellence in education.
           </p>
-          <br />
-          <br />
         </div>
       </div>
-      <hr />
     </>
   );
 }
