@@ -162,9 +162,7 @@ function Feedback() {
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-15 py-5"
       >
         <span className="flex justify-between items-center ">
-          <h1 className=" text-3xl font-semibold text-black mb-4 ">
-            Feedback
-          </h1>
+          <h1 className=" text-3xl font-semibold text-black mb-4 ">Feedback</h1>
 
           <button
             className="bg-blue-900 hover:bg-blue-500 text-white rounded-xl md:px-4 px-2 py-2"
@@ -173,7 +171,7 @@ function Feedback() {
             provide feedback
           </button>
         </span>
-        
+
         <span className="text-blue-900">Happy candidates feedbacks:</span>
         <div className="w-11/12 md:w-3/4 mx-auto  mt-10 justify-between items-center">
           <Slider {...settings}>
@@ -182,8 +180,12 @@ function Feedback() {
                 key={d.name}
                 className="feedback-card bg-blue-100 rounded-lg shadow-lg overflow-hidden p-4 h-72"
               >
-                <p className="text-xl text-center font-semibold text-gray-800">{d.name}</p>
-                <p className="text-l text-center my-1 text-gray-800">{d.course} course</p>
+                <p className="text-xl text-center font-semibold text-gray-800">
+                  {d.name}
+                </p>
+                <p className="text-l text-center my-1 text-gray-800">
+                  {d.course} course
+                </p>
                 <div className="star-rating flex justify-center mb-3 my-2">
                   {renderStars(d.rating)}
                 </div>
@@ -342,7 +344,7 @@ function Feedback() {
               <div className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50">
                 {/* Add your Spinner component here */}
                 <Spinner />
-              </div> 
+              </div>
             )}
           </div>
         )}

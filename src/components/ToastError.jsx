@@ -13,7 +13,7 @@ const ToastError = ({ message, onClose }) => {
   }, [onClose]);
 
   return (
-    <div className="max-w-sm mx-auto bg-white rounded-xl overflow-hidden shadow-md z-50">
+    <div className="max-w-sm mx-auto bg-slate-200 rounded-xl overflow-hidden shadow-md z-50">
       <div className="px-6 py-4">
         <div className="flex items-center justify-center">
           <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
