@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import pic from "../../public/skillspark.jpeg";
+import pic from "../../public/csi_logo.png";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoCloseSharp } from "react-icons/io5";
 import { Link } from "react-scroll";
@@ -30,13 +30,13 @@ function Navbar() {
   ];
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 h-16 shadow-md fixed top-0 left-0 right-0 z-50 bg-white">
+      <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 h-16 shadow-md fixed top-0 left-0 right-0 z-50 bg-solid bg-blue-900 text-white ">
         <div className="flex justify-between items-center h-16">
           <div className=" flex space-x-2">
             <img src={pic} className="h-12 w-12 rounded-full" alt="" />
-            <h1 className="font-semibold text-xl cursor-pointer">
-            <span className="text-2xl text-blue-800" >Skill</span>
-              <p className="text-sm">Spark</p>
+            <h1 className=" text-xl cursor-pointer">
+            <span className="text-2xl text-white hover:text-blue-200" >CreativeTech</span>
+              <p className="text-sm hover:text-blue-200">Skills Institute</p>
             </h1>
           </div>
           {/* desktop navbar */}
@@ -44,7 +44,7 @@ function Navbar() {
             <ul className="hidden md:flex space-x-8">
               {navItems.map(({ id, text }) => (
                 <li
-                  className="hover:scale-105 duration-200 cursor-pointer"
+                  className="hover:scale-105 duration-200 cursor-pointer hover:text-blue-200 mx-2"
                   key={id}
                 >
                   <Link
@@ -53,6 +53,7 @@ function Navbar() {
                     duration={500}
                     offset={-70}
                     activeClass="active"
+                    
                   >
                     {text}
                   </Link>
@@ -67,7 +68,7 @@ function Navbar() {
         {/* mobile navbar */}
         {menu && (
           <div className="bg-white">
-            <ul className="md:hidden flex flex-col h-screen items-center justify-center space-y-3 text-xl">
+            <ul className="md:hidden flex flex-col h-screen items-center justify-center space-y-3 text-xl py-1 text-gray-800">
               {navItems.map(({ id, text }) => (
                 <li
                   className="hover:scale-105 duration-200 font-semibold cursor-pointer"

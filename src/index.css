@@ -5,7 +5,11 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  color: black;
+             
 }
+
+
 
 /* Css for slider reviews */
 .slick-slide > div {
@@ -13,16 +17,16 @@ body {
 }
 
 .slick-dots li.slick-active button:before {
-  color: #1565C0 !important;
+  color: #09305c !important;
 }
   
 .slick-prev:before, .slick-next:before
 {
-  color:#3F51B5;
+  color:#09305c ;
 }
 .slick-prev:after, .slick-next:after
 {
-  color:#3F51B5;
+  color:#09305c ;
 }
 
 @media (max-width: 768px) {

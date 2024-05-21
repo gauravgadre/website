@@ -47,54 +47,59 @@ function Courses() {
   const cardItem = [
     {
       id: 1,
-      logo: hr,
-      name: "HR",
+      logo: java,
+      name: "Java",
+      content: "Java Programming, Object-Oriented Design, Spring Framework, RESTful APIs, Database Management, Version Control (Git), Testing & Debugging"
     },
     {
       id: 2,
-      logo: recruitment,
-      name: "Recruitment",
+      logo: web,
+      name: "Web Developement",
+      content:
+        "HTML, CSS, Java Script, UI/UX Design, Databases, Web APIs, Version Control/Git",
     },
     {
       id: 3,
-      logo: java,
-      name: "Java",
+      logo: testing,
+      name: "Testing/Automation",
+      content:
+        "Manual, Automation, Programming Languages, Test Automation Frameworks, Test Automation Tools, API Testing, Test Reporting and Analysis",
     },
     {
       id: 4,
-      logo: web,
-      name: "Web Developement",
+      logo: hr,
+      name: "HR",
+      content:
+        "Introduction to Human Resource Management, HRMS, Statutory Compliance, Payroll, Employee Life Cycle Management, HR and Business, Best practices in HR",
     },
     {
       id: 5,
-      logo: testing,
-      name: "Testing/Automation",
+      logo: recruitment,
+      name: "Recruitment",
+      content:
+        "Understanding JD, Sourcing, core recruitment, Calling, documentation process, how to handle job portals, salary negotiations, Excel",
     },
     {
       id: 6,
       logo: incident_manager,
       name: "Incident Manager",
+      content:
+        "Communication Skills, Problem-Solving and Decision-Making, Leadership and Team Management, Stakeholder Management, Documentation and Reporting",
     },
 
     {
       id: 7,
       logo: BA,
       name: "Bussiness Analyst",
+      content:
+        "Analytical Skills, Requirement Gathering from client, Documentation and Reporting,Domain Knowledge, Business Process Modeling, Stakeholder Management",
     },
     {
       id: 8,
-      logo: softskill,
-      name: "Soft Skills",
-    },
-    {
-      id: 9,
-      logo: internship,
-      name: "Internship Certificate",
-    },
-    {
-      id: 10,
       logo: msw,
       name: "Master of Social Work (MSW)",
+      content:
+        "Data Collection, Community Management, Documenting into database",
     },
   ];
 
@@ -214,32 +219,32 @@ function Courses() {
     <>
       <div
         name="Courses"
-        className="max-w-screen-2xl container mx-auto px-4 md:px-20 mt-10"
+        className="max-w-screen-2xl container mx-auto px-4 md:px-20 mt-10 bg-white text-gray-800"
       >
         <div>
-          <h1 className="text-3xl font-semibold mb-4 pt-5">Courses</h1>
-          <span className=" underline font-semibold">Trainings available</span>
+          <h1 className="pt-4 text-3xl font-semibold text-black mb-4 ">Courses</h1>
+          {/* <span className=" underline font-semibold">Trainings available</span> */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 my-5">
-            {cardItem.map(({ id, logo, name }) => (
+            {cardItem.map(({ id, logo, name, content }) => (
               <div
-                className="md:w-[300px] md:h-[300px] border-[2px] rounded-lg shadow-lg p-1 cursor-pointer md:hover:scale-110 hover:bg-white duration-200"
+                className="md:w-[300px] md:h-[300px] border-[2px] rounded-lg shadow-lg p-1 cursor-pointer md:hover:scale-110 hover:bg-white bg-blue-100 duration-200 flex flex-col justify-between"
                 key={id}
               >
-                <img
-                  src={logo}
-                  className="w-[120px] h-[120px] p-1 rounded-full border-[2px]"
-                  alt=""
-                />
                 <div>
-                  <div className="px-2 font-bold text-xl mb-2">{name}</div>
-                  <p className="px-2 text-gray-700">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  </p>
+                  <img
+                    src={logo}
+                    className="w-[80px] h-[80px] p-1 rounded-full border-[2px] mx-auto"
+                    alt=""
+                  />
+                  <div className="px-2 font-semibold text-l mb-2 mt-1 text-center text-gray-800">
+                    {name}
+                  </div>
+                  <p className="px-2 text-gray-800 text-sm ">{content}</p>
                 </div>
-                <div className="px-6 py-4 space-x-3 flex justify-around">
+                <div className="px-6 py-4">
                   <button
-                    className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
-                    onClick={() => handleEnrollClick(name)} // Open modal on button click
+                    className="bg-blue-900 hover:bg-blue-500 text-white rounded-xl flex items-center justify-center w-full py-2"
+                    onClick={() => handleEnrollClick(name)}
                   >
                     enroll now
                   </button>
@@ -332,7 +337,7 @@ function Courses() {
                   </div>
 
                   <button
-                    className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
+                    className="bg-blue-900 hover:bg-blue-500 text-white rounded-xl flex items-center px-5 py-2"
                     onClick={handleNextStep}
                     type="button"
                     disabled={isValid}
@@ -398,7 +403,7 @@ function Courses() {
 
                   <div className="px-6 space-x-3 flex justify-around">
                     <button
-                      className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
+                      className="bg-blue-900 hover:bg-blue-500 text-white rounded-xl flex items-center px-5 py-2"
                       onClick={handleBackStep}
                     >
                       <FaLongArrowAltLeft />
@@ -407,7 +412,7 @@ function Courses() {
 
                     <button
                       type="submit"
-                      className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
+                      className="bg-blue-900 hover:bg-blue-500 text-white rounded-xl flex items-center px-5 py-2"
                     >
                       submit
                     </button>
@@ -418,8 +423,7 @@ function Courses() {
           </div>
         )}
       </div>
-      <hr />
-
+      
       {isToastSucess && (
         <div className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-500">
           <ToastSuccess
@@ -436,6 +440,9 @@ function Courses() {
           />
         </div>
       )}
+      <br/>
+      <br/>
+      <hr></hr>
     </>
   );
 }

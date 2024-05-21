@@ -159,31 +159,35 @@ function Feedback() {
     <>
       <div
         name="Feedback"
-        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-16"
+        className="max-w-screen-2xl container mx-auto px-4 md:py-20 md:px-20 "
       >
-        <div className="flex justify-between items-center mb-4 pt-5">
-          <h1 className="text-3xl font-semibold">Feedback</h1>
+        <span className="flex justify-between items-center">
+          <h1 className=" text-3xl font-semibold text-black mb-4 ">
+            Feedback
+          </h1>
+
           <button
-            className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl md:px-4 px-2 py-2"
+            className="bg-blue-900 hover:bg-blue-500 text-white rounded-xl md:px-4 px-2 py-2"
             onClick={() => handleFeedbackClick()} // Open modal on button click
           >
             provide feedback
           </button>
-        </div>
-        <span>Happy candidates feedbacks:</span>
-        <div className="w-11/12 md:w-3/4 mx-auto mt-10 justify-between items-center">
+        </span>
+        
+        <span className="text-blue-900">Happy candidates feedbacks:</span>
+        <div className="w-11/12 md:w-3/4 mx-auto  mt-10 justify-between items-center">
           <Slider {...settings}>
             {data.map((d, index) => (
               <div
                 key={d.name}
-                className="feedback-card bg-white rounded-lg shadow-lg overflow-hidden p-4 h-72"
+                className="feedback-card bg-blue-100 rounded-lg shadow-lg overflow-hidden p-4 h-72"
               >
-                <p className="text-xl text-center font-semibold">{d.name}</p>
-                <p className="text-l text-center my-1">{d.course} course</p>
+                <p className="text-xl text-center font-semibold text-gray-800">{d.name}</p>
+                <p className="text-l text-center my-1 text-gray-800">{d.course} course</p>
                 <div className="star-rating flex justify-center mb-3 my-2">
                   {renderStars(d.rating)}
                 </div>
-                <div className="review-content h-full overflow-y-auto">
+                <div className="review-content h-full w-full overflow-y-auto text-gray-800">
                   {expandedReview === index ? (
                     <p className="text-center my-2">{d.review}</p>
                   ) : (
@@ -191,7 +195,7 @@ function Feedback() {
                       {d.review.slice(0, 100)}{" "}
                       <button
                         onClick={() => toggleExpandedReview(index)}
-                        className="text-blue-700 underline"
+                        className="text-blue-900 underline"
                       >
                         Read More
                       </button>
@@ -207,7 +211,7 @@ function Feedback() {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <form
               onSubmit={handleSubmit}
-              className="bg-slate-200 w-96 px-8 py-6 rounded-xl"
+              className=" bg-slate-200 w-96 px-8 py-6 rounded-xl"
             >
               <div className="flex justify-between items-center px-15 py-4">
                 <h1 className="text-black px-2 py-2">Provide your feedback</h1>
@@ -294,14 +298,12 @@ function Feedback() {
                       key={value}
                       className="cursor-pointer px-2"
                       onClick={() => handleStarClick(value)}
-                      
                     >
                       {value <= rating ? (
                         <FaStar
                           key={value}
                           size={26}
                           className="text-yellow-400"
-                          
                         />
                       ) : (
                         <FaRegStar
@@ -319,11 +321,9 @@ function Feedback() {
                   Feedback
                 </label>
                 <textarea
-                  className=
-                  {`shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline max-h-40 min-h-20 h-10 resize-y${
+                  className={`shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline max-h-40 min-h-20 h-10 resize-y${
                     !feedbackValid ? "border-red-500" : ""
                   }`}
-                  
                   id="feedback"
                   name="feedback"
                   type="text"
@@ -333,7 +333,7 @@ function Feedback() {
               </div>
               <button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center px-5 py-2"
+                className="bg-blue-900 hover:bg-blue-500 text-white rounded-xl flex items-center px-5 py-2"
               >
                 submit
               </button>
@@ -364,6 +364,9 @@ function Feedback() {
           />
         </div>
       )}
+      <br />
+      <br />
+      <hr></hr>
     </>
   );
 }
@@ -373,21 +376,21 @@ const data = [
     id: 1,
     name: `Priya Sharma`,
     course: "Java",
-    rating: 3,
+    rating: 5,
     review: `I enrolled in the Java course, and it was an amazing learning experience! The content was comprehensive, and the instructors were very knowledgeable.`,
   },
   {
     id: 2,
     name: `Rajesh Patel`,
     course: "Web Development",
-    rating: 2,
+    rating: 4,
     review: `The Web Development course exceeded my expectations. I learned a lot of practical skills that I could immediately apply to real-world projects. Highly recommended!`,
   },
   {
     id: 3,
     name: `Aarav Gupta`,
     course: "HR",
-    rating: 3,
+    rating: 4,
     review: `As someone working in HR, I found the HR course extremely helpful. It provided valuable insights into talent management, employee relations, and HR strategies.`,
   },
   {
@@ -401,21 +404,21 @@ const data = [
     id: 5,
     name: `Aditya Khanna`,
     course: "Testing/Automation",
-    rating: 3,
+    rating: 4,
     review: `The Testing course was comprehensive and well-structured. It covered all the essential aspects of software testing, and I feel ready to take on testing projects in my job.`,
   },
   {
     id: 6,
     name: `Ishaan Sharma`,
     course: "Recruitment",
-    rating: 4,
+    rating: 5,
     review: `I enrolled in the Recruitment course to improve my hiring skills, and it was a great decision. The course materials were practical, and I learned valuable techniques for attracting top talent.`,
   },
   {
     id: 7,
     name: `Neha Gupta`,
     course: "Master of Social Work (MSW)",
-    rating: 3,
+    rating: 4,
     review: `I recently completed the HR course, and I must say it was fantastic! The instructors were engaging, and the course content was very relevant to modern HR practices.`,
   },
 ];
