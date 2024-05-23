@@ -277,7 +277,7 @@ function Courses() {
               {currentStep === 1 && (
                 <>
                   <div className="flex flex-col mb-4">
-                    <label className="block text-gray-700">FullName</label>
+                    <label className="block text-gray-700">Full Name</label>
                     <input
                       className={`shadow rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
                         formErrors.name ? "border-red-500" : ""
@@ -285,7 +285,7 @@ function Courses() {
                       id="name"
                       name="name"
                       type="text"
-                      placeholder="Enter your fullname"
+                      placeholder="Enter your full name"
                       value={enrollmentData.name}
                       onChange={handleInputChange}
                     />
