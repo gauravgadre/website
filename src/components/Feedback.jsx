@@ -70,10 +70,10 @@ function Feedback() {
     for (let i = 1; i <= 5; i++) {
       if (i <= rating) {
         // Render filled star icons
-        stars.push(<FaStar key={i} size={22} className="text-yellow-600" />);
+        stars.push(<FaStar key={i} size={22} className="text-yellow-500" />);
       } else {
         // Render empty star icons for remaining stars
-        stars.push(<FaRegStar key={i} size={22} className="text-yellow-600" />);
+        stars.push(<FaRegStar key={i} size={22} className="text-yellow-500" />);
       }
     }
 
@@ -172,24 +172,27 @@ function Feedback() {
           </button>
         </span>
 
-        <span className="text-blue-900">Happy candidates feedbacks:</span>
-        <div className="w-11/12 md:w-3/4 mx-auto  mt-10 justify-between items-center">
+        <span className="text-blue-900 flex justify-between items-center md:mt-auto md:mx-auto mt-6 mx-11">Happy candidates feedbacks:</span>
+
+        <div className="w-11/12 md:w-3/4 mx-auto mt-10 justify-between items-center">
           <Slider {...settings}>
             {data.map((d, index) => (
               <div
                 key={d.name}
-                className="feedback-card bg-blue-100 rounded-lg shadow-lg overflow-hidden p-4 h-72"
+                className="feedback-card cursor-pointer bg-blue-100 rounded-lg shadow-lg overflow-hidden p-4"
               >
-                <p className="text-xl text-center font-semibold text-gray-800">
-                  {d.name}
-                </p>
-                <p className="text-l text-center my-1 text-gray-800">
-                  {d.course} course
-                </p>
-                <div className="star-rating flex justify-center mb-3 my-2">
-                  {renderStars(d.rating)}
+                <div className="w-full bg-white py-2">
+                  <p className="text-xl text-center text-gray-800 py-2">
+                    {d.name}
+                  </p>
+                  <p className="text-l text-center my-1 text-gray-800">
+                    {d.course} course
+                  </p>
+                  <div className="star-rating flex justify-center mb-3 my-2">
+                    {renderStars(d.rating)}
+                  </div>
                 </div>
-                <div className="review-content h-full w-full overflow-y-auto text-gray-800">
+                <div className="review-content w-full text-gray-800">
                   {expandedReview === index ? (
                     <p className="text-center my-2">{d.review}</p>
                   ) : (
@@ -305,13 +308,13 @@ function Feedback() {
                         <FaStar
                           key={value}
                           size={26}
-                          className="text-yellow-600"
+                          className="text-yellow-500"
                         />
                       ) : (
                         <FaRegStar
                           size={26}
                           key={value}
-                          className="text-yellow-600"
+                          className="text-yellow-500"
                         />
                       )}
                     </div>
@@ -375,31 +378,31 @@ function Feedback() {
 const data = [
   {
     id: 1,
-    name: `Priya Sharma`,
-    course: "Java",
-    rating: 5,
-    review: `I enrolled in the Java course, and it was an amazing learning experience! The content was comprehensive, and the instructors were very knowledgeable.`,
-  },
-  {
-    id: 2,
     name: `Rajesh Patel`,
     course: "Web Development",
     rating: 4,
     review: `The Web Development course exceeded my expectations. I learned a lot of practical skills that I could immediately apply to real-world projects. Highly recommended!`,
   },
   {
-    id: 3,
+    id: 2,
     name: `Aarav Gupta`,
     course: "HR",
     rating: 4,
     review: `As someone working in HR, I found the HR course extremely helpful. It provided valuable insights into talent management, employee relations, and HR strategies.`,
   },
   {
-    id: 4,
+    id: 3,
     name: `Ananya Singh`,
     course: "Incident Manager",
     rating: 5,
     review: `Being an Incident Manager, I needed a course that could enhance my skills in handling critical situations. The Incident Manager course did exactly that, and I feel more confident in my role now.`,
+  },
+  {
+    id: 4,
+    name: `Priya Sharma`,
+    course: "Java",
+    rating: 5,
+    review: `I enrolled in the Java course, and it was an amazing learning experience! The content was comprehensive, and the instructors were very knowledgeable.`,
   },
   {
     id: 5,

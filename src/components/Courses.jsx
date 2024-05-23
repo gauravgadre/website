@@ -43,46 +43,63 @@ function Courses() {
     photo: "",
     certificates: "",
   });
+  const [expanded, setExpanded] = useState({});
 
+  const toggleReadMore = (id) => {
+    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
   const cardItem = [
     {
       id: 1,
       logo: java,
-      name: "Java",
-      content: "Java Programming, Object-Oriented Design, Spring Framework, RESTful APIs, Database Management, Version Control (Git), Testing & Debugging"
+      coursename: "Java",
+      originalfee: "25000",
+      offerfee: "15000",
+      content:
+        "Java Programming, Object-Oriented Design, Spring Framework, RESTful APIs, Database Management, Version Control (Git), Testing & Debugging",
     },
     {
       id: 2,
       logo: web,
-      name: "Web Developement",
+      coursename: "Web Developement",
+      originalfee: "20000",
+      offerfee: "10000",
       content:
         "HTML, CSS, Java Script, UI/UX Design, Databases, Web APIs, Version Control/Git",
     },
     {
       id: 3,
       logo: testing,
-      name: "Testing/Automation",
+      coursename: "Testing/Automation",
+      originalfee: "20000",
+      offerfee: "10000",
       content:
         "Manual, Automation, Programming Languages, Test Automation Frameworks, Test Automation Tools, API Testing, Test Reporting and Analysis",
     },
     {
       id: 4,
       logo: hr,
-      name: "HR",
+      coursename: "HR",
+      originalfee: "20000",
+      offerfee: "10000",
       content:
         "Introduction to Human Resource Management, HRMS, Statutory Compliance, Payroll, Employee Life Cycle Management, HR and Business, Best practices in HR",
     },
     {
       id: 5,
       logo: recruitment,
-      name: "Recruitment",
+      coursename: "Recruitment",
+      originalfee: "20000",
+      offerfee: "10000",
       content:
         "Understanding JD, Sourcing, core recruitment, Calling, documentation process, how to handle job portals, salary negotiations, Excel",
     },
     {
       id: 6,
       logo: incident_manager,
-      name: "Incident Manager",
+      coursename: "Incident Manager",
+      originalfee: "20000",
+      offerfee: "10000",
       content:
         "Communication Skills, Problem-Solving and Decision-Making, Leadership and Team Management, Stakeholder Management, Documentation and Reporting",
     },
@@ -90,14 +107,18 @@ function Courses() {
     {
       id: 7,
       logo: BA,
-      name: "Bussiness Analyst",
+      coursename: "Bussiness Analyst",
+      originalfee: "20000",
+      offerfee: "10000",
       content:
         "Analytical Skills, Requirement Gathering from client, Documentation and Reporting,Domain Knowledge, Business Process Modeling, Stakeholder Management",
     },
     {
       id: 8,
       logo: msw,
-      name: "Master of Social Work (MSW)",
+      coursename: "Master of Social Work (MSW)",
+      originalfee: "20000",
+      offerfee: "10000",
       content:
         "Data Collection, Community Management, Documenting into database",
     },
@@ -222,35 +243,57 @@ function Courses() {
         className="max-w-screen-2xl container mx-auto px-4 md:px-20 mt-10 bg-white text-gray-800"
       >
         <div>
-          <h1 className="pt-4 text-3xl font-semibold text-black mb-4 ">Courses</h1>
+          <h1 className="pt-4 text-3xl font-semibold text-black mb-4 ">
+            Courses
+          </h1>
           {/* <span className=" underline font-semibold">Trainings available</span> */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 my-5">
-            {cardItem.map(({ id, logo, name, content }) => (
-              <div
-                className="md:w-[300px] md:h-[300px] border-[2px] rounded-lg shadow-lg p-1 cursor-pointer md:hover:scale-110 hover:bg-white bg-blue-100 duration-200 flex flex-col justify-between"
-                key={id}
-              >
-                <div>
-                  <img
-                    src={logo}
-                    className="w-[80px] h-[80px] p-1 rounded-full border-[2px] mx-auto"
-                    alt=""
-                  />
-                  <div className="px-2 font-semibold text-l mb-2 mt-1 text-center text-gray-800">
-                    {name}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8 px-4">
+            {cardItem.map(
+              ({ id, logo, coursename, content, originalfee, offerfee }) => (
+                <div
+                  className="group md:w-[340px] md:h-[380px] border-[2px] rounded-lg shadow-lg p-4 cursor-pointer hover:bg-white bg-blue-50 duration-300 flex flex-col justify-between"
+                  key={id}
+                >
+                  <div className="flex flex-col items-center">
+                    <div className="text-xl mb-2 mt-1 text-center text-gray-800 w-full bg-white py-2 group-hover:bg-blue-100 duration-300">
+                      {coursename}
+                    </div>
+                    <div className="text-center text-gray-800 mb-4">
+                      <span className="block text-sm text-gray-600 line-through">
+                        Original Fees: {originalfee}
+                      </span>
+                      <span className="block text-lg font-bold text-blue-800">
+                        Offer Fees: {offerfee}
+                      </span>
+                    </div>
+                    <p className="text-gray-700 text-sm text-center px-4 mb-2">
+                      In this course you will learn:
+                    </p>
+                    <p className="text-gray-700 text-sm text-center px-4 mb-4">
+                      {expanded[id]
+                        ? content
+                        : `${content.substring(0, 100)}...`}
+                      {content.length > 100 && (
+                        <button
+                          onClick={() => toggleReadMore(id)}
+                          className="text-blue-900 underline ml-1"
+                        >
+                          {expanded[id] ? "Read Less" : "Read More"}
+                        </button>
+                      )}
+                    </p>
                   </div>
-                  <p className="px-2 text-gray-800 text-sm ">{content}</p>
+                  <div className="mt-auto px-6 py-4">
+                    <button
+                      className="bg-blue-900 hover:bg-blue-700 text-white rounded-full flex items-center justify-center w-full py-3 shadow-md transition duration-300"
+                      onClick={() => handleEnrollClick(coursename)}
+                    >
+                      Enroll Now
+                    </button>
+                  </div>
                 </div>
-                <div className="px-6 py-4">
-                  <button
-                    className="bg-blue-900 hover:bg-blue-500 text-white rounded-xl flex items-center justify-center w-full py-2"
-                    onClick={() => handleEnrollClick(name)}
-                  >
-                    enroll now
-                  </button>
-                </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </div>
 
@@ -423,7 +466,7 @@ function Courses() {
           </div>
         )}
       </div>
-      
+
       {isToastSucess && (
         <div className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-500">
           <ToastSuccess
@@ -440,8 +483,8 @@ function Courses() {
           />
         </div>
       )}
-      <br/>
-      <br/>
+      <br />
+      <br />
     </>
   );
 }
