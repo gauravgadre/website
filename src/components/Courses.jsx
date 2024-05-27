@@ -55,6 +55,7 @@ function Courses() {
       coursename: "Java",
       originalfee: "25000",
       offerfee: "15000",
+      duration: "3 months",
       content:
         "Java Programming, Object-Oriented Design, Spring Framework, RESTful APIs, Database Management, Version Control (Git), Testing & Debugging",
     },
@@ -64,6 +65,7 @@ function Courses() {
       coursename: "Web Developement",
       originalfee: "20000",
       offerfee: "10000",
+      duration: "3 months",
       content:
         "HTML, CSS, Java Script, UI/UX Design, Databases, Web APIs, Version Control/Git",
     },
@@ -73,6 +75,7 @@ function Courses() {
       coursename: "Testing/Automation",
       originalfee: "20000",
       offerfee: "10000",
+      duration: "3 months",
       content:
         "Manual, Automation, Programming Languages, Test Automation Frameworks, Test Automation Tools, API Testing, Test Reporting and Analysis",
     },
@@ -82,6 +85,7 @@ function Courses() {
       coursename: "HR",
       originalfee: "20000",
       offerfee: "10000",
+      duration: "2 months",
       content:
         "Introduction to Human Resource Management, HRMS, Statutory Compliance, Payroll, Employee Life Cycle Management, HR and Business, Best practices in HR",
     },
@@ -91,6 +95,7 @@ function Courses() {
       coursename: "Recruitment",
       originalfee: "20000",
       offerfee: "10000",
+      duration: "2 months",
       content:
         "Understanding JD, Sourcing, core recruitment, Calling, documentation process, how to handle job portals, salary negotiations, Excel",
     },
@@ -100,6 +105,7 @@ function Courses() {
       coursename: "Incident Manager",
       originalfee: "20000",
       offerfee: "10000",
+      duration: "3 months",
       content:
         "Communication Skills, Problem-Solving and Decision-Making, Leadership and Team Management, Stakeholder Management, Documentation and Reporting",
     },
@@ -110,6 +116,7 @@ function Courses() {
       coursename: "Bussiness Analyst",
       originalfee: "20000",
       offerfee: "10000",
+      duration: "3 months",
       content:
         "Analytical Skills, Requirement Gathering from client, Documentation and Reporting,Domain Knowledge, Business Process Modeling, Stakeholder Management",
     },
@@ -119,6 +126,7 @@ function Courses() {
       coursename: "Master of Social Work (MSW)",
       originalfee: "20000",
       offerfee: "10000",
+      duration: "2 months",
       content:
         "Data Collection, Community Management, Documenting into database",
     },
@@ -249,9 +257,17 @@ function Courses() {
           {/* <span className=" underline font-semibold">Trainings available</span> */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8 px-4">
             {cardItem.map(
-              ({ id, logo, coursename, content, originalfee, offerfee }) => (
+              ({
+                id,
+                logo,
+                coursename,
+                content,
+                originalfee,
+                offerfee,
+                duration,
+              }) => (
                 <div
-                  className="group md:w-[340px] md:h-[380px] border-[2px] rounded-lg shadow-lg p-4 cursor-pointer hover:bg-white bg-blue-50 duration-300 flex flex-col justify-between"
+                  className="group md:w-[340px] md:h-[400px] border-[2px] rounded-lg shadow-lg p-4 cursor-pointer hover:bg-white bg-blue-50 duration-300 flex flex-col justify-between"
                   key={id}
                 >
                   <div className="flex flex-col items-center">
@@ -266,6 +282,9 @@ function Courses() {
                         Offer Fees: {offerfee}
                       </span>
                     </div>
+                    <span className="text-gray-700 text-sm text-center mb-2">
+                      Course duration: {duration}
+                    </span>
                     <p className="text-gray-700 text-sm text-center px-4 mb-2">
                       In this course you will learn:
                     </p>
@@ -408,7 +427,7 @@ function Courses() {
                   <div className="flex flex-col mb-4">
                     <label className="block text-gray-700">Photo</label>
                     <input
-                      className="shadow bg-white rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
+                      className="bg-white rounded-lg file:rounded-md file:cursor-pointer border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
                       id="photo"
                       name="photo"
                       type="file"
@@ -421,7 +440,7 @@ function Courses() {
                       KYC document Adhaar/PAN
                     </label>
                     <input
-                      className="shadow bg-white rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className=" file:rounded-md file:cursor-pointer bg-white rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       id="kyc"
                       name="kyc"
                       type="file"
@@ -435,7 +454,7 @@ function Courses() {
                       Educational Certificates
                     </label>
                     <input
-                      className="shadow bg-white rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className="file:rounded-md file:cursor-pointer bg-white rounded-lg appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       id="certificates"
                       name="certificates"
                       type="file"

@@ -6,10 +6,8 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'custom-radial': 'radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(200,200,200,1) 97%)',
-      }
-    }
+     
+    },
   },
   plugins: [],
 }
