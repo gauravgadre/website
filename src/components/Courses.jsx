@@ -274,14 +274,14 @@ function Courses() {
                     <div className="text-xl mb-2 mt-1 text-center text-gray-800 w-full bg-white py-2 group-hover:bg-blue-100 duration-300">
                       {coursename}
                     </div>
-                    <div className="text-center text-gray-800 mb-4">
+                    {/* <div className="text-center text-gray-800 mb-4">
                       <span className="block text-sm text-gray-600 line-through">
                         Original Fees: {originalfee}
                       </span>
                       <span className="block text-lg font-bold text-blue-800">
                         Offer Fees: {offerfee}
                       </span>
-                    </div>
+                    </div> */}
                     <span className="text-gray-700 text-sm text-center mb-2">
                       Course duration: {duration}
                     </span>
