@@ -282,9 +282,9 @@ function Courses() {
                         Offer Fees: {offerfee}
                       </span>
                     </div> */}
-                    <span className="text-gray-700 text-sm text-center mb-2">
+                    {/* <span className="text-gray-700 text-sm text-center mb-2">
                       Course duration: {duration}
-                    </span>
+                    </span> */}
                     <p className="text-gray-700 text-sm text-center px-4 mb-2">
                       In this course you will learn:
                     </p>
